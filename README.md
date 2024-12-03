@@ -25,10 +25,11 @@ The SimulateReadWriteOperation() function emulates resource usage time with a pr
 
 ## How to Run
 ### Hardware Setup:
-- Connect the STM32F1 board to your computer via USB.
+- Connect every LED to the STM32F1 board. You can use the available pins on stm32f1. Here I use pin PA11 for RED LED, PA10 for BLUE LED, PA9 for GREEN LED, and PA8 for ORANGE LED, where the pins are connected to the positive side of the LED. While the negative side of the LED is connected to Ground (GND). And then connect the STM32F1 board to your computer via USB.
 ### Code Generation:
 - Open STM32CubeIDE and load the provided .ioc file.
-- Ensure the GPIO pins for LEDs and middleware (FreeRTOS) are configured.
+- Ensure the GPIO pins for LEDs and middleware (FreeRTOS) are configured as follows:
+  1. 
 - Generate the project files for your IDE.
 ### Build and Deploy:
 - Import the generated project into your IDE.
