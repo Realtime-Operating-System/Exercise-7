@@ -29,10 +29,15 @@ The SimulateReadWriteOperation() function emulates resource usage time with a pr
 ### Code Generation:
 - Open STM32CubeIDE and load the provided .ioc file.
 - Ensure the GPIO pins for LEDs and middleware (FreeRTOS) are configured as follows:
-  1. SYS
-     <img width="578" alt="sys" src="https://github.com/user-attachments/assets/566d21cc-be8c-4369-aa2d-467de1df3624">
-  2. Pin Configuration   
+  #### SYS
+  <img width="578" alt="sys" src="https://github.com/user-attachments/assets/566d21cc-be8c-4369-aa2d-467de1df3624">
   
+  #### Pin Configuration
+  <img width="395" alt="pin" src="https://github.com/user-attachments/assets/1beb6c9d-9fa8-4004-827a-bf3ef38c87f4">
+  
+  #### FreeRTOS
+  <img width="928" alt="freertos" src="https://github.com/user-attachments/assets/c44efd36-a3ea-4e1c-897c-7d2aa88d6ee7">
+
 - Generate the project files for your IDE.
 ### Build and Deploy:
 - Import the generated project into your IDE.
@@ -45,3 +50,28 @@ The SimulateReadWriteOperation() function emulates resource usage time with a pr
 - main.c: Contains the primary application code, task definitions, and shared resource functions.
 - STM32CubeIDE.ioc: Configuration file for STM32CubeIDE.
 - FreeRTOSConfig.h: Configuration for FreeRTOS parameters.
+
+## How It Works?
+### redLEDTask
+1. Turns on the red LED (HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET)).
+2. Enters a critical section (taskENTER_CRITICAL()).
+3. Calls the AccessSharedData() function:
+   - Checks and modifies the StartFlag variable.
+   - Simulates a read/write operation for 1 second using SimulateReadWriteOperation().
+   - Turns off the blue LED if it was lit during contention.
+4. Exits the critical section (taskEXIT_CRITICAL()).
+5. Turns off the red LED.
+6. Waits for 550 milliseconds (osDelay(550)) before repeating.
+### greenLEDTask
+1. Turns on the green LED (HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET)).
+2. Enters a critical section (taskENTER_CRITICAL()).
+3. Calls the AccessSharedData() function (same behavior as in redLEDTask).
+4. Exits the critical section (taskEXIT_CRITICAL()).
+5. Turns off the green LED.
+6. Waits for 200 milliseconds (osDelay(200)) before repeating.
+### orangeLEDTask
+1. Toggles the orange LED (HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8)).
+2. Waits for 50 milliseconds (osDelay(50)) before toggling again.
+
+## Demo Video
+
