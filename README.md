@@ -29,7 +29,10 @@ The SimulateReadWriteOperation() function emulates resource usage time with a pr
 ### Code Generation:
 - Open STM32CubeIDE and load the provided .ioc file.
 - Ensure the GPIO pins for LEDs and middleware (FreeRTOS) are configured as follows:
-  1. 
+  1. SYS
+     <img width="578" alt="sys" src="https://github.com/user-attachments/assets/566d21cc-be8c-4369-aa2d-467de1df3624">
+  2. Pin Configuration   
+  
 - Generate the project files for your IDE.
 ### Build and Deploy:
 - Import the generated project into your IDE.
