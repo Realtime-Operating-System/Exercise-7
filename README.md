@@ -74,5 +74,5 @@ The SimulateReadWriteOperation() function emulates resource usage time with a pr
 2. Waits for 50 milliseconds (osDelay(50)) before toggling again.
 
 ## Demo Video
-![https://github.com/user-attachments/assets/6e049b82-bb28-4653-aa1f-f0b7459ce102]
+[Exercise 7](https://github.com/user-attachments/assets/6e049b82-bb28-4653-aa1f-f0b7459ce102)
 
