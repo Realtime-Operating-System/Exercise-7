@@ -76,3 +76,5 @@ The SimulateReadWriteOperation() function emulates resource usage time with a pr
 ## Demo Video
 [Exercise 7](https://github.com/user-attachments/assets/6e049b82-bb28-4653-aa1f-f0b7459ce102)
 
+Note: white LED = blue LED🙏
+
